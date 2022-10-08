@@ -1,1 +1,19 @@
-<p>statements works!</p>
+<h1 class="text-white">Title</h1>
+<button type="button" (click)="toggle()"><svg width="68" height="68" viewBox="0 0 68 68" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M11.3333 17H56.6666V22.6667H11.3333V17ZM11.3333 31.1667H56.6666V36.8333H11.3333V31.1667ZM11.3333 45.3333H56.6666V51H11.3333V45.3333Z"
+      fill="white" />
+  </svg></button>
+
+<!-- without top-0 -->
+<div class="w-60 fixed top-0 right-0 z-50" *ngIf="show">
+  <app-sidebar></app-sidebar>
+</div>
+
+<!-- <div class="hidden" *ngIf="!show">
+  <app-sidebar></app-sidebar>
+</div> -->
+
+
+<div class="text-white">Content</div>

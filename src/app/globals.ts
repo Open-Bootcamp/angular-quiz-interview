@@ -4,6 +4,7 @@ export const TECHNOLOGIES = [
         imgUrl: 'https://cdn.worldvectorlogo.com/logos/javascript.svg',
         status: 'available',
         levelTraining: 'advanced',
+        bgCard: 'bg-[#f7df1e]',
     },
     {
         name: 'Angular',

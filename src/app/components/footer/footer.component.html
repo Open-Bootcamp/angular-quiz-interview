@@ -1,0 +1,14 @@
+<footer class="container min-w-full bg-gray-900 text-center text-white fixed bottom-0">
+    <div class="flex justify-center gap-5 p-2">
+        <a *ngFor="let social of socials" href="{{social.url}}" target="_blank"
+            class="m-1 text-white transition duration-150 ease-in-out focus:outline-none focus:ring-0">
+            <span class="transition-colors: mx-auto text-2xl text-slate-300 duration-300 hover:text-white">
+                <i class="fa-brands {{social.faIcon}}"></i>
+            </span>
+        </a>
+    </div>
+    <div class="bg-gray-800 p-3 text-center">
+        <a href="{{obLink}}" class="text-sm text-slate-400"> © 2022
+            OpenBootcamp Community™. </a>
+    </div>
+</footer>

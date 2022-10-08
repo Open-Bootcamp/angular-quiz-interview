@@ -1,7 +1,7 @@
 export const TECHNOLOGIES = [
     {
         name: 'JavaScript',
-        imgUrl: '../assets/img/logo-javascript.png',
+        imgUrl: 'https://res.cloudinary.com/teoisnotdead/image/upload/v1665257981/app-interview-trainer/logo-javascript_nycpre.png',
         status: true,
         levelTraining: 'advanced',
         bgCard: 'bg-[#f7df1e]',
@@ -11,7 +11,7 @@ export const TECHNOLOGIES = [
     },
     {
         name: 'Angular',
-        imgUrl: '../assets/img/logo-angular.png',
+        imgUrl: 'https://res.cloudinary.com/teoisnotdead/image/upload/v1665257981/app-interview-trainer/logo-angular_i83opb.png',
         status: false,
         levelTraining: 'advanced',
         bgCard: 'bg-white',
@@ -21,7 +21,7 @@ export const TECHNOLOGIES = [
     },
     {
         name: 'React',
-        imgUrl: '../assets/img/logo-react.png',
+        imgUrl: 'https://res.cloudinary.com/teoisnotdead/image/upload/v1665257981/app-interview-trainer/logo-react_fqlrsq.png',
         status: false,
         levelTraining: 'advanced',
         bgCard: 'bg-[#222222]',
@@ -31,7 +31,7 @@ export const TECHNOLOGIES = [
     },
     {
         name: 'Typescript',
-        imgUrl: '../assets/img/logo-typescript.png',
+        imgUrl: 'https://res.cloudinary.com/teoisnotdead/image/upload/v1665257981/app-interview-trainer/logo-typescript_yndnim.png',
         status: false,
         levelTraining: 'advanced',
         bgCard: 'bg-[#2B75CB]',
@@ -41,7 +41,7 @@ export const TECHNOLOGIES = [
     },
     {
         name: 'Python',
-        imgUrl: '../assets/img/logo-python.png',
+        imgUrl: 'https://res.cloudinary.com/teoisnotdead/image/upload/v1665257981/app-interview-trainer/logo-python_l9x212.png',
         status: false,
         levelTraining: 'advanced',
         bgCard: 'bg-white',
@@ -51,7 +51,7 @@ export const TECHNOLOGIES = [
     },
     {
         name: 'Java',
-        imgUrl: '../assets/img/logo-java.png',
+        imgUrl: 'https://res.cloudinary.com/teoisnotdead/image/upload/v1665257981/app-interview-trainer/logo-java_d2p5zh.png',
         status: false,
         levelTraining: 'advanced',
         bgCard: 'bg-white',

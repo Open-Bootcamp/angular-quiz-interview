@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 import * as globals from '../../globals';
 
 @Component({
@@ -8,14 +9,26 @@ import * as globals from '../../globals';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  technologies = globals.TECHNOLOGIES;
+  technologies: any;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private apiService: ApiService,
+  ) { }
 
   ngOnInit(): void {
+    this.getTechnologies();
   }
 
-  toInterviewTrainer() {
+  getTechnologies = () => {
+    this.apiService.getTechnologies().subscribe((response: any) => {
+      this.technologies = response.data;
+    });
+  }
+
+
+  toInterviewTrainer(tech: any) {
+    console.log(tech);
     this.router.navigate(['/interview-trainer']);
   }
 

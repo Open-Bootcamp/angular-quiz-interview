@@ -11,4 +11,8 @@ export class ApiService {
   getStatements() {
     return this.http.get('https://angular-quiz-interview.rj.r.appspot.com/api/questions');
   }
+
+  getTechnologies() {
+    return this.http.get('https://angular-quiz-interview.rj.r.appspot.com/api/technologies');
+  }
 }

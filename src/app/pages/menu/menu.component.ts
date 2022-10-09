@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
-import * as globals from '../../globals';
 
 @Component({
   selector: 'app-menu',
@@ -26,10 +25,11 @@ export class MenuComponent implements OnInit {
     });
   }
 
-
   toInterviewTrainer(tech: any) {
-    console.log(tech);
-    this.router.navigate(['/interview-trainer']);
+    const navigationExtras: NavigationExtras = {
+      state: tech._id
+    };
+    this.router.navigate(['/interview-trainer'], navigationExtras);
   }
 
 }

@@ -9,6 +9,7 @@ const routes: Routes = [
     component: MenuComponent
   },
   { path: 'interview-trainer', pathMatch: 'full', component: StatementsComponent },
+  { path: '', pathMatch: 'full', redirectTo: '/menu' },
   { path: '**', pathMatch: 'full', redirectTo: '/menu' },
 ];
 

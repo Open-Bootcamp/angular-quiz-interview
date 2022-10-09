@@ -29,7 +29,7 @@ export class StatementsComponent implements OnInit {
   }
 
   ngAfterViewChecked() {
-    if (!this.highlighted) {
+    if (this.haveCode && !this.highlighted) {
       this.highlightService.highlightAll();
       this.highlighted = true;
     }
@@ -40,6 +40,7 @@ export class StatementsComponent implements OnInit {
   }
 
   checkAnswer(answer: any) {
+    console.log(answer);
     let correct = answer.correct
     correct ? this.showCorrect = true : this.showCorrect = true
     correct ? this.messageAnswer = globals.ANSWERS.correct : this.messageAnswer = globals.ANSWERS.incorrect

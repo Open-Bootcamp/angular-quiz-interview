@@ -89,4 +89,29 @@ export const OB_LINKS = {
     footerUrl: 'https://bit.ly/3E5AGBt',
 };
 
-export const STATEMENTS = [];
+export const STATEMENTS = [
+    {
+        id: 1,
+        question: '¿Que resultado sale por la consola?',
+        code: '\nlet x = 10;\n\nconst byValue = (y) => {\n   y = 20;\n}\n\nbyValue(x);\nconsole.log(x);',
+        answer: [
+            {
+                text: 'Linea 1: false, Linea 2: true',
+                correct: true,
+            },
+            {
+                text: 'Linea 1: true, Linea 2: false',
+                correct: false,
+            },
+            {
+                text: 'Linea 1: true, Linea 2: false',
+                correct: false,
+            }
+        ]
+    }
+];
+
+export const ANSWERS = {
+    correct: '¡Respuesta correcta! 🎉',
+    incorrect: '¡Respuesta incorrecta! 😢',
+}

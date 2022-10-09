@@ -10,7 +10,7 @@
             <img class="w-32" src="{{tech.imgUrl}}" alt="logo-javascript">
             <div class="flex justify-between sm:mt-10 md:mt-6 lg:mt-6">
                 <h5 class="text-3xl sm:pt-2 font-bold tracking-tight {{tech.textColor}}">Avanzado</h5>
-                <div
+                <div (click)="toInterviewTrainer()"
                     class="flex justify-center align-middle {{tech.bgIconContainer}} w-[49px] h-[49px] rounded cursor-pointer">
                     <svg class="w-6 h-6 mt-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke-width="1.5" [attr.stroke]="tech.iconStroke">

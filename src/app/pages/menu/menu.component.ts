@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as globals from '../../globals';
 
 @Component({
@@ -9,9 +10,13 @@ import * as globals from '../../globals';
 export class MenuComponent implements OnInit {
   technologies = globals.TECHNOLOGIES;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  toInterviewTrainer() {
+    this.router.navigate(['/interview-trainer']);
   }
 
 }

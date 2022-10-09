@@ -17,6 +17,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTechnologies();
+    localStorage.clear();
   }
 
   getTechnologies = () => {
@@ -26,6 +27,7 @@ export class MenuComponent implements OnInit {
   }
 
   toInterviewTrainer(tech: any) {
+    localStorage.setItem('idTechnology', JSON.stringify(tech._id));
     const navigationExtras: NavigationExtras = {
       state: tech._id
     };

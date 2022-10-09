@@ -23,9 +23,9 @@ export class StatementsComponent implements OnInit {
     private highlightService: HighlightService,
     private apiService: ApiService,
     private router: Router,
-  ) { 
+  ) {
     const state = this.router.getCurrentNavigation()?.extras.state;
-    this.idTechnology = state;
+    this.idTechnology = state || JSON.parse(localStorage.getItem('idTechnology') || '{}')
   }
 
   ngAfterViewChecked() {
@@ -48,7 +48,7 @@ export class StatementsComponent implements OnInit {
 
   getStatements() {
     this.apiService.getStatements(this.idTechnology).subscribe((response: any) => {
-      this.results = response.data;
+      this.results = response.data.sort(() => Math.random() - 0.5);
       this.statements = this.results[0].question;
       this.options = this.results[0].answer;
       if (this.results[0].code) {
@@ -59,5 +59,5 @@ export class StatementsComponent implements OnInit {
       }
     })
   }
-
+  
 }

@@ -19,6 +19,7 @@ export class StatementsComponent implements OnInit {
   results: any;
   statements!: string;
   code!: string;
+  templateCodes!: string
   options: any;
   idTechnology: any;
 
@@ -85,12 +86,15 @@ export class StatementsComponent implements OnInit {
     this.statements = this.results[0].question;
     this.options = this.results[0].answer;
     if (this.results[0].code) {
-      this.haveCode = true;
       this.code = this.results[0].code;
+      this.templateCodes = `
+      <pre>
+      <code class="language-javascript">${this.code}</code>
+      </pre>`;
+      this.haveCode = true;
     } else {
       this.haveCode = false;
     }
   }
-
 
 }

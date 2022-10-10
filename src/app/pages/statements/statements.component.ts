@@ -10,10 +10,20 @@ import { Router } from '@angular/router';
 })
 export class StatementsComponent implements OnInit {
   // sidebar
-
+  bonusLife = 0;
   show = false;
+  lifes = [...new Array(globals.ASIDE_DATA.lifes)].map((_, i) => i);
+  points = 0;
   toggle(): void {
     this.show = !this.show;
+  }
+
+  subtractLife() {
+    this.lifes.pop();
+    if (this.lifes.length === 0) {
+      this.showFinishQuestions = true;
+      this.finishMessage = globals.MESSAGES.finish;
+    }
   }
 
   // ./ sidebar
@@ -65,9 +75,21 @@ export class StatementsComponent implements OnInit {
     this.disabledButtons = true;
     let correct = answer.correct;
     correct ? (this.showMessageAnswer = true) : (this.showMessageAnswer = true);
-    correct
-      ? (this.messageAnswer = globals.MESSAGES.correct)
-      : (this.messageAnswer = globals.MESSAGES.incorrect);
+    if (correct) {
+      this.messageAnswer = globals.MESSAGES.correct;
+      this.points += 10;
+      this.bonusLife++;
+      if (this.bonusLife === 5) {
+        this.lifes.push(1);
+        this.bonusLife = 0;
+      }
+    } else {
+      this.messageAnswer = globals.MESSAGES.incorrect;
+      this.points === 0 && this.subtractLife();
+      this.points !== 0 && (this.points -= 10);
+      this.bonusLife = 0;
+    }
+
     setTimeout(() => {
       this.nextQuestion();
     }, 800);

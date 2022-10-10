@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MenuComponent } from './pages/menu/menu.component';
@@ -9,6 +8,9 @@ import { StatementsComponent } from './pages/statements/statements.component';
 import { RegisterModalComponent } from './pages/register-modal/register-modal.component';
 import { ModalComponent } from './pages/register-modal/components/modal/modal.component';
 import { SidebarComponent } from './pages/statements/sidebar/sidebar.component';
+import { HighlightService } from './services/highlight.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -20,8 +22,13 @@ import { SidebarComponent } from './pages/statements/sidebar/sidebar.component';
     ModalComponent,
     SidebarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [],
-  bootstrap: [AppComponent],
+
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+  ],
+  providers: [HighlightService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

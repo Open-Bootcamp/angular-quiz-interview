@@ -1,23 +1,64 @@
 export const TECHNOLOGIES = [
-  {
-    name: 'JavaScript',
-    imgUrl: 'https://cdn.worldvectorlogo.com/logos/javascript.svg',
-    status: 'available',
-    levelTraining: 'advanced',
-  },
-  {
-    name: 'Angular',
-    imgUrl: 'https://angular.io/assets/images/logos/angular/angular.svg',
-    status: 'unavailable',
-    levelTraining: 'advanced',
-  },
-  {
-    name: 'React',
-    imgUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png',
-    status: 'unavailable',
-    levelTraining: 'advanced',
-  },
+    {
+        name: 'JavaScript',
+        imgUrl: 'https://res.cloudinary.com/teoisnotdead/image/upload/v1665257981/app-interview-trainer/logo-javascript_nycpre.png',
+        status: true,
+        levelTraining: 'advanced',
+        bgCard: 'bg-[#f7df1e]',
+        textColor: 'text-black',
+        iconStroke: 'white',
+        bgIconContainer: 'bg-black',
+    },
+    {
+        name: 'Angular',
+        imgUrl: 'https://res.cloudinary.com/teoisnotdead/image/upload/v1665257981/app-interview-trainer/logo-angular_i83opb.png',
+        status: false,
+        levelTraining: 'advanced',
+        bgCard: 'bg-white',
+        textColor: 'text-black',
+        iconStroke: 'white',
+        bgIconContainer: 'bg-black',
+    },
+    {
+        name: 'React',
+        imgUrl: 'https://res.cloudinary.com/teoisnotdead/image/upload/v1665257981/app-interview-trainer/logo-react_fqlrsq.png',
+        status: false,
+        levelTraining: 'advanced',
+        bgCard: 'bg-[#222222]',
+        textColor: 'text-white',
+        iconStroke: 'black',
+        bgIconContainer: 'bg-white',
+    },
+    {
+        name: 'Typescript',
+        imgUrl: 'https://res.cloudinary.com/teoisnotdead/image/upload/v1665257981/app-interview-trainer/logo-typescript_yndnim.png',
+        status: false,
+        levelTraining: 'advanced',
+        bgCard: 'bg-[#2B75CB]',
+        textColor: 'text-white',
+        iconStroke: 'black',
+        bgIconContainer: 'bg-white',
+    },
+    {
+        name: 'Python',
+        imgUrl: 'https://res.cloudinary.com/teoisnotdead/image/upload/v1665257981/app-interview-trainer/logo-python_l9x212.png',
+        status: false,
+        levelTraining: 'advanced',
+        bgCard: 'bg-white',
+        textColor: 'text-black',
+        iconStroke: 'white',
+        bgIconContainer: 'bg-black',
+    },
+    {
+        name: 'Java',
+        imgUrl: 'https://res.cloudinary.com/teoisnotdead/image/upload/v1665257981/app-interview-trainer/logo-java_d2p5zh.png',
+        status: false,
+        levelTraining: 'advanced',
+        bgCard: 'bg-white',
+        textColor: 'text-black',
+        iconStroke: 'white',
+        bgIconContainer: 'bg-black',
+    }
 ];
 
 export const SOCIAL_MEDIAS = [
@@ -47,4 +88,29 @@ export const OB_LINKS = {
   footerUrl: 'https://bit.ly/3E5AGBt',
 };
 
-export const STATEMENTS = [];
+export const STATEMENTS = [
+    {
+        id: 1,
+        question: '¿Que resultado sale por la consola?',
+        code: '\nlet x = 10;\n\nconst byValue = (y) => {\n   y = 20;\n}\n\nbyValue(x);\nconsole.log(x);',
+        answer: [
+            {
+                text: 'Linea 1: false, Linea 2: true',
+                correct: true,
+            },
+            {
+                text: 'Linea 1: true, Linea 2: false',
+                correct: false,
+            },
+            {
+                text: 'Linea 1: true, Linea 2: false',
+                correct: false,
+            }
+        ]
+    }
+];
+
+export const ANSWERS = {
+    correct: '¡Respuesta correcta! 🎉',
+    incorrect: '¡Respuesta incorrecta! 😢',
+}

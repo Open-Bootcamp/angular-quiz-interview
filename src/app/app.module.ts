@@ -6,11 +6,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { StatementsComponent } from './pages/statements/statements.component';
 import { RegisterModalComponent } from './pages/register-modal/register-modal.component';
-import { ModalComponent } from './pages/register-modal/components/modal/modal.component';
 import { SidebarComponent } from './pages/statements/sidebar/sidebar.component';
 import { HighlightService } from './services/highlight.service';
 import { HttpClientModule } from '@angular/common/http';
-
 
 @NgModule({
   declarations: [
@@ -19,16 +17,11 @@ import { HttpClientModule } from '@angular/common/http';
     MenuComponent,
     StatementsComponent,
     RegisterModalComponent,
-    ModalComponent,
     SidebarComponent,
   ],
 
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [HighlightService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

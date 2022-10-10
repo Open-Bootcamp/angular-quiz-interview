@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/register' },
   { path: 'menu', pathMatch: 'full', component: MenuComponent },
   { path: 'register', pathMatch: 'full', component: RegisterModalComponent },
-  { path: 'statements', pathMatch: 'full', component: StatementsComponent },
+  { path: 'interview-trainer', pathMatch: 'full', component: StatementsComponent },
+  { path: '**', pathMatch: 'full', redirectTo: '/menu' },
 ];
 
 @NgModule({

@@ -110,7 +110,8 @@ export const STATEMENTS = [
     }
 ];
 
-export const ANSWERS = {
+export const MESSAGES = {
     correct: '¡Respuesta correcta! 🎉',
     incorrect: '¡Respuesta incorrecta! 😢',
+    finish: '¡Has terminado el entrenamiento! 🎉',
 }

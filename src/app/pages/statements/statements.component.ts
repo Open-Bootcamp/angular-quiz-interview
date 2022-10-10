@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-statements',
   templateUrl: './statements.component.html',
-  styleUrls: ['./statements.component.css']
+  styleUrls: ['./statements.component.css'],
 })
 export class StatementsComponent implements OnInit {
   private highlighted: boolean = false;

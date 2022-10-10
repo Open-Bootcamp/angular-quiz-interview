@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class MenuComponent implements OnInit {
   technologies: any;
+  haveTechnologies = false;
 
   constructor(
     private router: Router,
@@ -21,8 +22,10 @@ export class MenuComponent implements OnInit {
   }
 
   getTechnologies = () => {
+    this.haveTechnologies = true;
     this.apiService.getTechnologies().subscribe((response: any) => {
       this.technologies = response.data;
+      this.haveTechnologies = false;
     });
   }
 

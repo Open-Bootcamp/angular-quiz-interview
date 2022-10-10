@@ -25,10 +25,4 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
-  // close
-
-  /*  toggle(): void {
-    this.show = !this.show;
-  } */
 }

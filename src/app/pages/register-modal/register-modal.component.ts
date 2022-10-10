@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-modal',
@@ -6,13 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register-modal.component.css'],
 })
 export class RegisterModalComponent implements OnInit {
-  show: boolean = true;
+  constructor(private router: Router) {}
 
-  constructor() {}
+  goToMenuPage(): void {
+    this.router.navigate(['/menu']);
+  }
 
   ngOnInit(): void {}
-
-  close() {
-    this.show = false;
-  }
 }

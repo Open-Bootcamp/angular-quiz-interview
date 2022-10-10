@@ -1,24 +1,27 @@
-<div *ngIf="!showFinishQuestions" class="w-full p-5 md:p-8 text-center">
-    <h2 class="text-4xl font-semibold text-white mb-4">{{statements}}</h2>
-    <div *ngIf="haveCode" class="w-full flex justify-center select-none pointer-events-none">
-        <pre>
-            <code class="language-javascript">{{code}}</code>
-        </pre>
-    </div>
-    <div class="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5 my-12 w-full">
-        <button *ngFor="let option of options"
-            class="bg-[#f7df1e] hover:bg-[#f7de1eaf] text-black font-bold py-10 px-20 mr-0 md:mr-5 rounded text-3xl"
-            (click)="checkAnswer(option)" [disabled]="disabledButtons">{{option.text}}</button>
-    </div>
-    <div *ngIf="showMessageAnswer">
-        <div class="text-3xl font-semibold text-white mb-4 animate-bounce">
-            {{messageAnswer}}
+<div class="flex justify-between">
+    <div *ngIf="!showFinishQuestions" class="w-full p-5 md:p-8 text-center flex flex-col items-center justify-center">
+        <h2 class="text-4xl font-semibold text-white mb-4">{{statements}}</h2>
+        <div *ngIf="haveCode" class="w-full flex justify-center select-none pointer-events-none">
+            <pre>
+                <code class="language-javascript">{{code}}</code>
+            </pre>
         </div>
-        <!-- <span class="text-slate-300 duration-300 hover:text-white">
-            <i class="animate-spin h-5 w-5 mr-3 fa-regular fa-spinner-third"></i>
-        </span> -->
+        <div class="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5 my-12 w-full">
+            <button *ngFor="let option of options"
+                class="bg-[#f7df1e] hover:bg-[#f7de1eaf] text-black font-bold py-10 px-20 mr-0 md:mr-5 rounded text-3xl"
+                (click)="checkAnswer(option)" [disabled]="disabledButtons">{{option.text}}</button>
+        </div>
+        <div *ngIf="showMessageAnswer">
+            <div class="text-3xl font-semibold text-white mb-4 animate-bounce">
+                {{messageAnswer}}
+            </div>
+            <!-- <span class="text-slate-300 duration-300 hover:text-white">
+                <i class="animate-spin h-5 w-5 mr-3 fa-regular fa-spinner-third"></i>
+            </span> -->
+        </div>
+        <div *ngIf="showFinishQuestions" class="w-full p-5 md:5p-8 text-center">
+            <h2 class="text-4xl font-semibold text-white mb-4">{{finishMessage}}</h2>
+        </div>
     </div>
-</div>
-<div *ngIf="showFinishQuestions" class="w-full p-5 md:5p-8 text-center">
-    <h2 class="text-4xl font-semibold text-white mb-4">{{finishMessage}}</h2>
+    <app-sidebar></app-sidebar>
 </div>

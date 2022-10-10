@@ -32,7 +32,7 @@ export class StatementsComponent implements OnInit {
   }
 
   ngAfterViewChecked() {
-    if (this.haveCode) {
+    if (this.haveCode && !this.highlighted) {
       this.highlightService.highlightAll();
       this.highlighted = true;
     }
@@ -44,15 +44,7 @@ export class StatementsComponent implements OnInit {
 
   getStatements() {
     this.apiService.getStatements(this.idTechnology).subscribe((response: any) => {
-      this.results = response.data.sort(() => Math.random() - 0.5);
-      this.statements = this.results[0].question;
-      this.options = this.results[0].answer;
-      if (this.results[0].code) {
-        this.haveCode = true;
-        this.code = this.results[0].code;
-      } else {
-        this.haveCode = false;
-      }
+      this.valuesStatements(response.data);
     })
   }
 
@@ -63,29 +55,42 @@ export class StatementsComponent implements OnInit {
     correct ? this.messageAnswer = globals.MESSAGES.correct : this.messageAnswer = globals.MESSAGES.incorrect
     setTimeout(() => {
       this.nextQuestion();
-    }, 12000);
+    }, 800);
   }
 
   nextQuestion() {
-    this.disabledButtons = false;
-    this.messageAnswer = '';
-    this.showMessageAnswer = false;
+    this.resetViewValues();
     if (this.results.length > 1) {
       const remainingList = this.results.filter((item: any) => item._id !== this.results[0]._id);
-      this.results = remainingList;
-      this.statements = this.results[0].question;
-      this.options = this.results[0].answer;
-      if (this.results[0].code) {
-        this.haveCode = true;
-        this.code = this.results[0].code;
-      } else {
-        this.haveCode = false;
-      }
+      this.valuesStatements(remainingList);
     } else {
       this.showFinishQuestions = true;
       this.finishMessage = globals.MESSAGES.finish;
-      console.log('termino', this.results);
     }
   }
+
+  resetViewValues() {
+    this.highlighted = false;
+    this.disabledButtons = false;
+    this.haveCode = false;
+    this.showMessageAnswer = false;
+    this.messageAnswer = '';
+    this.statements = '';
+    this.options = [];
+    this.code = '';
+  }
+
+  valuesStatements(obj: any) {
+    this.results = obj.sort(() => Math.random() - 0.5);;
+    this.statements = this.results[0].question;
+    this.options = this.results[0].answer;
+    if (this.results[0].code) {
+      this.haveCode = true;
+      this.code = this.results[0].code;
+    } else {
+      this.haveCode = false;
+    }
+  }
+
 
 }

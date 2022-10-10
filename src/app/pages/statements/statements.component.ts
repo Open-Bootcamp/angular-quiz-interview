@@ -10,9 +10,12 @@ import { Router } from '@angular/router';
 })
 export class StatementsComponent implements OnInit {
   private highlighted: boolean = false;
-  showCorrect = false;
-  messageAnswer!: string;
+  showMessageAnswer = false;
   haveCode = false;
+  showFinishQuestions = false;
+  disabledButtons = false;
+  messageAnswer!: string;
+  finishMessage!: string;
   results: any;
   statements!: string;
   code!: string;
@@ -29,7 +32,7 @@ export class StatementsComponent implements OnInit {
   }
 
   ngAfterViewChecked() {
-    if (this.haveCode && !this.highlighted) {
+    if (this.haveCode) {
       this.highlightService.highlightAll();
       this.highlighted = true;
     }
@@ -37,13 +40,6 @@ export class StatementsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStatements();
-  }
-
-  checkAnswer(answer: any) {
-    console.log(answer);
-    let correct = answer.correct
-    correct ? this.showCorrect = true : this.showCorrect = true
-    correct ? this.messageAnswer = globals.ANSWERS.correct : this.messageAnswer = globals.ANSWERS.incorrect
   }
 
   getStatements() {
@@ -59,5 +55,37 @@ export class StatementsComponent implements OnInit {
       }
     })
   }
-  
+
+  checkAnswer(answer: any) {
+    this.disabledButtons = true;
+    let correct = answer.correct
+    correct ? this.showMessageAnswer = true : this.showMessageAnswer = true
+    correct ? this.messageAnswer = globals.MESSAGES.correct : this.messageAnswer = globals.MESSAGES.incorrect
+    setTimeout(() => {
+      this.nextQuestion();
+    }, 12000);
+  }
+
+  nextQuestion() {
+    this.disabledButtons = false;
+    this.messageAnswer = '';
+    this.showMessageAnswer = false;
+    if (this.results.length > 1) {
+      const remainingList = this.results.filter((item: any) => item._id !== this.results[0]._id);
+      this.results = remainingList;
+      this.statements = this.results[0].question;
+      this.options = this.results[0].answer;
+      if (this.results[0].code) {
+        this.haveCode = true;
+        this.code = this.results[0].code;
+      } else {
+        this.haveCode = false;
+      }
+    } else {
+      this.showFinishQuestions = true;
+      this.finishMessage = globals.MESSAGES.finish;
+      console.log('termino', this.results);
+    }
+  }
+
 }

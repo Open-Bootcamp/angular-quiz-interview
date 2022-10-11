@@ -17,13 +17,14 @@ export class SidebarComponent implements OnInit {
   constructor(private router: Router) {}
 
   @Output() newCloseEvent = new EventEmitter<boolean>();
+  @Output() onCloseModal = new EventEmitter<boolean>();
 
   onClose(): void {
     this.newCloseEvent.emit(!this.show);
   }
 
-  goToMenuPage() {
-    this.router.navigate(['/']);
+  closeModal(): void {
+    this.onCloseModal.emit(false);
   }
 
   ngOnInit(): void {}

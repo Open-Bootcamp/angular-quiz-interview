@@ -10,6 +10,18 @@ import { IName } from 'src/app/interface/router.interface';
   styleUrls: ['./statements.component.css'],
 })
 export class StatementsComponent implements OnInit {
+  // Modal
+  showModal = false;
+
+  toggleModalCancel(): void {
+    this.showModal = !this.showModal;
+  }
+
+  goToMenuPage() {
+    this.router.navigate(['/']);
+  }
+  // ./Modal
+
   // sidebar
   name!: IName;
   bonusLife = 0;
@@ -52,8 +64,12 @@ export class StatementsComponent implements OnInit {
     const navigation = this.router.getCurrentNavigation();
     const state = navigation?.extras.state;
     this.incomingData = state;
-    this.idTechnology = JSON.parse(localStorage.getItem('idTechnology') as string) || this.incomingData[1]
-    this.name = JSON.parse(localStorage.getItem('name') as string) || this.incomingData[0]
+    this.idTechnology =
+      JSON.parse(localStorage.getItem('idTechnology') as string) ||
+      this.incomingData[1];
+    this.name =
+      JSON.parse(localStorage.getItem('name') as string) ||
+      this.incomingData[0];
   }
 
   ngAfterViewChecked() {

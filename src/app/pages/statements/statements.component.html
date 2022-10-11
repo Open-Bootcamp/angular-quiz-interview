@@ -1,0 +1,67 @@
+<div class="h-screen">
+  <div class="flex justify-end w-full" (click)="toggle()" *ngIf="show">
+    <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M11.3333 17H56.6666V22.6667H11.3333V17ZM11.3333 31.1667H56.6666V36.8333H11.3333V31.1667ZM11.3333 45.3333H56.6666V51H11.3333V45.3333Z"
+        fill="white" />
+    </svg>
+  </div>
+
+  <div class="flex justify-between sm:mt-0 mt-5">
+    <div class="w-full text-center flex flex-col items-center justify-center">
+      <div *ngIf="!showFinishQuestions" class="w-full px-10">
+        <h2 class="text-4xl font-semibold text-white mb-4">{{statements}}</h2>
+        <div *ngIf="haveCode" [innerHtml]="templateCodes"
+          class="w-full flex justify-center select-none pointer-events-none">
+        </div>
+        <div class="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5 my-12 w-full">
+          <button *ngFor="let option of options"
+            class="bg-[#f7df1e] hover:bg-[#f7de1eaf] text-black font-bold sm:py-10 sm:px-20 py-5 px-10 mr-0 md:mr-5 rounded text-base mix-blend-darken:text-2xl"
+            (click)="checkAnswer(option)" [disabled]="disabledButtons">{{option.text}}</button>
+        </div>
+        <div *ngIf="showMessageAnswer">
+          <div class="text-3xl font-semibold text-white mb-4 animate-bounce">
+            {{messageAnswer}}
+          </div>
+          <i class="animate-spin text-4xl mr-3 fas fa-circle-notch text-white"></i>
+        </div>
+      </div>
+      <div *ngIf="showFinishQuestions" class="w-full p-5 md:5p-8 text-center">
+        <h2 class="text-4xl font-semibold text-white mb-4">{{finishMessage}}</h2>
+        <button (click)="goToMenu()"
+          class="bg-[#f7df1e] hover:bg-[#f7de1eaf] text-black font-bold sm:py-10 sm:px-20 py-5 px-10 mr-0 md:mr-5 rounded text-2xl">
+          Volver a intentar
+        </button>
+      </div>
+    </div>
+    <app-sidebar [show]="!show" (newCloseEvent)="toggle()" [points]="points" [lifes]="lifes" [name]="name"
+      (onCloseModal)="toggleModalCancel()">
+    </app-sidebar>
+  </div>
+</div>
+
+
+
+<!-- (click)="goToMenuPage()" -->
+
+<div class='modalContainer fixed top-0 z-40 flex h-screen w-full items-center justify-center bg-[rgba(0,0,0,0.5)]'
+  *ngIf="showModal">
+  <div
+    class='p-6 flex h-[140px] w-54 flex-col gap-2 overflow-hidden rounded-[5px] bg-[#222] border-[0.2px] border-white border-solid'>
+    <div class="mb-1 text-[22px] font-semibold text-white">
+      ¿Estas seguro que quieres salir?
+    </div>
+    <div class="flex gap-2">
+      <button
+        class="closeBtn   bg-none px-[15px] py-[10px]  text-black  text-center font-bold w-full bg-white flex justify-center rounded-[5px]"
+        (click)="toggleModalCancel()">
+        Cancelar
+      </button>
+      <button
+        class="closeBtn   bg-none px-[15px] py-[10px]  text-black  text-center font-bold w-full bg-white flex justify-center rounded-[5px]"
+        (click)="goToMenuPage()">
+        Aceptar
+      </button>
+    </div>
+  </div>
+</div>

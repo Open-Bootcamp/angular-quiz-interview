@@ -34,7 +34,34 @@
         </button>
       </div>
     </div>
-    <app-sidebar [show]="!show" (newCloseEvent)="toggle()" [points]="points" [lifes]="lifes" [name]="name">
+    <app-sidebar [show]="!show" (newCloseEvent)="toggle()" [points]="points" [lifes]="lifes" [name]="name"
+      (onCloseModal)="toggleModalCancel()">
     </app-sidebar>
+  </div>
+</div>
+
+
+
+<!-- (click)="goToMenuPage()" -->
+
+<div class='modalContainer fixed top-0 z-40 flex h-screen w-full items-center justify-center bg-[rgba(0,0,0,0.5)]'
+  *ngIf="showModal">
+  <div
+    class='p-6 flex h-[140px] w-54 flex-col gap-2 overflow-hidden rounded-[5px] bg-[#222] border-[0.2px] border-white border-solid'>
+    <div class="mb-1 text-[22px] font-semibold text-white">
+      ¿Estas seguro que quieres salir?
+    </div>
+    <div class="flex gap-2">
+      <button
+        class="closeBtn   bg-none px-[15px] py-[10px]  text-black  text-center font-bold w-full bg-white flex justify-center rounded-[5px]"
+        (click)="toggleModalCancel()">
+        Cancelar
+      </button>
+      <button
+        class="closeBtn   bg-none px-[15px] py-[10px]  text-black  text-center font-bold w-full bg-white flex justify-center rounded-[5px]"
+        (click)="goToMenuPage()">
+        Aceptar
+      </button>
+    </div>
   </div>
 </div>

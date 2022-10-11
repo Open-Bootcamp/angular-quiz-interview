@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-modal',
@@ -6,13 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register-modal.component.css'],
 })
 export class RegisterModalComponent implements OnInit {
-  show: boolean = true;
+  formGoToMenu = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+  });
 
-  constructor() {}
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {}
+  goToMenuPage(): void {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        name: this.formGoToMenu.value.name,
+      },
+    };
+    console.log(this.formGoToMenu.value.name);
+    this.router.navigate(['/menu'], navigationExtras);
+  }
 
-  close() {
-    this.show = false;
+  ngOnInit(): void {
+    localStorage.clear();
   }
 }

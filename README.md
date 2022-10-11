@@ -1,29 +1,59 @@
-# AngularQuizInterview
+# Angular Quiz Interview
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
+## Tabla de Contenidos
 
-Probando commit con id de issue en el mensaje
+- [Angular Quiz Interview](#angular-quiz-interview)
+  - [Tabla de Contenidos](#tabla-de-contenidos)
+  - [Preview](#preview)
+    - [Screenshot](#screenshot)
+  - [Proyecto](#proyecto)
+    - [Links](#links)
+  - [Proceso](#proceso)
+    - [Construido con:](#construido-con)
+    - [Recursos Utilizados](#recursos-utilizados)
+  - [Autores](#autores)
+    - [OpenBootcamp Community](#openbootcamp-community)
 
-## Development server
+## Preview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Screenshot
 
-## Code scaffolding
+![](./src/assets/img.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Proyecto
 
-## Build
+Este proyecto fue realizado con la participación de los integrantes de OpenBootcamp, y es parte de una dinámica llamada "OpenWeekapps"
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Links
 
-## Running unit tests
+- Repositorio: [Solution](https://github.com/Open-Bootcamp/angular-quiz-interview)
+- Live Site URL: [Live App](https://angular-quiz-interview.netlify.app/register)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Proceso
 
-## Running end-to-end tests
+### Construido con:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Mobile-first
+- Diseño Responsivo
+- Flexbox
+- Angular
+- TypeScript
+- Tailwind
+- Prismjs
 
-## Further help
+### Recursos Utilizados
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- [Angular Docs](https://angular.io/docs)
+- [TypeScript Docs](https://www.typescriptlang.org/docs/)
+- [Tailwind Docs](https://tailwindcss.com/docs/)
+- [prismjs Docs](https://prismjs.com/docs/)
+- [Cloudinary Docs](https://cloudinary.com/documentation)
+- [MDN Web Docs](https://developer.mozilla.org/es/docs/Web)
+
+## Autores
+
+### OpenBootcamp Community
+
+- GitHub - [@YhonaPeguero](https://github.com/YhonaPeguero)
+- GitHub - [@LeandroMarcelo](https://github.com/Leandro-Marcelo)
+- GitHub - [@TEO](https://github.com/teoisnotdead)

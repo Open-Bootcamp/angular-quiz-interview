@@ -9,6 +9,7 @@ import { RegisterModalComponent } from './pages/register-modal/register-modal.co
 import { SidebarComponent } from './pages/statements/sidebar/sidebar.component';
 import { HighlightService } from './services/highlight.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,13 @@ import { HttpClientModule } from '@angular/common/http';
     SidebarComponent,
   ],
 
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [HighlightService],
   bootstrap: [AppComponent],
 })

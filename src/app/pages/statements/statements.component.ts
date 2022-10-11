@@ -3,6 +3,7 @@ import { HighlightService } from '../../services/highlight.service';
 import * as globals from '../../globals';
 import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
+import { IName } from 'src/app/interface/router.interface';
 @Component({
   selector: 'app-statements',
   templateUrl: './statements.component.html',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class StatementsComponent implements OnInit {
   // sidebar
+  name!: IName;
   bonusLife = 0;
   show = false;
   lifes = [...new Array(globals.ASIDE_DATA.lifes)].map((_, i) => i);
@@ -41,15 +43,17 @@ export class StatementsComponent implements OnInit {
   templateCodes!: string;
   options: any;
   idTechnology: any;
-
+  incomingData: any;
   constructor(
     private highlightService: HighlightService,
     private apiService: ApiService,
     private router: Router
   ) {
-    const state = this.router.getCurrentNavigation()?.extras.state;
-    this.idTechnology =
-      state || JSON.parse(localStorage.getItem('idTechnology') || '{}');
+    const navigation = this.router.getCurrentNavigation();
+    const state = navigation?.extras.state;
+    this.incomingData = state;
+    this.idTechnology = JSON.parse(localStorage.getItem('idTechnology') as string) || this.incomingData[1]
+    this.name = JSON.parse(localStorage.getItem('name') as string) || this.incomingData[0]
   }
 
   ngAfterViewChecked() {
@@ -133,5 +137,9 @@ export class StatementsComponent implements OnInit {
     } else {
       this.haveCode = false;
     }
+  }
+
+  goToMenu() {
+    this.router.navigate(['/register']);
   }
 }

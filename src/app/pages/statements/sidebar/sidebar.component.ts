@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { IName } from 'src/app/interface/router.interface';
 import * as globals from '../../../globals';
 
 @Component({
@@ -8,6 +9,7 @@ import * as globals from '../../../globals';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
+  @Input() name!: IName;
   @Input() show = false;
   @Input() lifes = [...new Array(globals.ASIDE_DATA.lifes)].map((_, i) => i);
   @Input() points = globals.ASIDE_DATA.points;
@@ -21,7 +23,7 @@ export class SidebarComponent implements OnInit {
   }
 
   goToMenuPage() {
-    this.router.navigate(['/menu']);
+    this.router.navigate(['/']);
   }
 
   ngOnInit(): void {}
